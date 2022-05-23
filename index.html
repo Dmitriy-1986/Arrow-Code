@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1b1b1b;
+      background-image: url('https://firebasestorage.googleapis.com/v0/b/dovgal-project.appspot.com/o/background-img.svg?alt=media&token=65ece31e-f3b3-4b4a-bda5-5be020f7e58f');
+      min-height: 100vh;
+    }
+
+    #root {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      width: 75%;
+      min-height: 80vh;
+      box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+    }
+
+    #root h1 {
+      font-weight: 700;
+      text-align: center;
+    }
+
+    #root span {
+      display: block;
+      border-top: 2px solid black;
+      margin: 0 auto;
+      width: 111px;
+    }
+
+    #root ul li {
+      line-height: 2;
+      font-size: 16px;
+      list-style: none;
+    }
+
+    li::before {
+      content: url('https://firebasestorage.googleapis.com/v0/b/dovgal-project.appspot.com/o/strike.png?alt=media&token=f5bbf0ed-a697-4f17-89c7-ae88ef5f0118');
+      color: #f16092;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="root"></div>
+  <script>
+    const WarAndPeace = (function () {
+      let titleArrowCode = 'Кодекс стрільця';
+      let arrowCode = {
+        st1: 'завжди поводитися зі зброєю, як із зарядженою;',
+        st2: 'ніколи не спрямовувати зброю туди, куди не хочеш стріляти;',
+        st3: 'перед пострілом, завжди перевіряти що перед мішенню та за нею;',
+        st4: 'ніколи не торкатися спускового гачка, поки зброя не буде спрямована на мішень.',
+      }
+      document.title = titleArrowCode;
+      const root = document.querySelector('#root');
+      let title = document.createElement('h1');
+      title.innerText = titleArrowCode;
+      root.appendChild(title);
+      let span = document.createElement('span');
+      root.appendChild(span);
+
+      let listArticle = document.createElement('ul');
+      root.appendChild(listArticle);
+
+      for (key in arrowCode) {
+        let li = document.createElement('li');
+        li.innerText = arrowCode[key].charAt(0).toUpperCase() + arrowCode[key].slice(1);;
+        listArticle.appendChild(li);
+      }
+    }());
+  </script>
+
+</body>
+
+</html>

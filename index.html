@@ -34,7 +34,7 @@
       flex-direction: column;
       align-items: center;
       background-color: #fff;
-      padding: 15px;
+      padding: 10px 25px 10px 25px;
       width: 75%;
       min-height: 80vh;
       box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
@@ -52,17 +52,36 @@
       width: 111px;
     }
 
+    #root ul {
+      padding: 0;
+    }
+
     #root ul li {
       line-height: 2;
       font-size: 16px;
       list-style: none;
     }
 
+    li:nth-child(-n+2) {
+      font-weight: 700;
+      text-align: center;
+      display: block;
+      font-size: 2em !important;
+    }
+
+    li:nth-child(-n+2)::before {
+      content: none;
+    }
+
+    li:nth-child(3) {
+      margin-top: 35px;
+    }
+
     li::before {
       content: url('https://firebasestorage.googleapis.com/v0/b/anonimus-afe6b.appspot.com/o/icon.svg?alt=media&token=0cb2dd8f-c2db-46c6-9065-6899a4061211');
       margin-right: 10px;
     }
-   
+
     @media screen and (max-width: 450px) {
       #root {
         width: 90%;
@@ -79,34 +98,32 @@
 <body>
 
   <div id="root"></div>
-  
+
   <script>
+
     const WarAndPeace = (function () {
-      let titleArrowCode = 'Кодекс стрільця';
       let arrowCode = {
+        title: 'Кодекс стрільця',
+        hr: '<span></span>',
         st1: 'завжди буду поводитися зі зброєю, як із зарядженою;',
         st2: 'ніколи не буду спрямовувати зброю туди, куди не хочу стріляти;',
         st3: 'перед пострілом, завжди буду перевіряти що перед мішенню та за нею;',
         st4: 'ніколи не буду торкатися спускового гачка, поки зброя не буде спрямована на мішень.',
       }
 
-      document.title = titleArrowCode;
+      document.title = arrowCode.title;
       const root = document.querySelector('#root');
-      let title = document.createElement('h1');
-      title.innerText = titleArrowCode;
-      root.appendChild(title);
-      let span = document.createElement('span');
-      root.appendChild(span);
 
       let listArticle = document.createElement('ul');
       root.appendChild(listArticle);
 
       for (key in arrowCode) {
         let li = document.createElement('li');
-        li.innerText = arrowCode[key].charAt(0).toUpperCase() + arrowCode[key].slice(1);
+        li.innerHTML = arrowCode[key].charAt(0).toUpperCase() + arrowCode[key].slice(1);
         listArticle.appendChild(li);
       }
     }());
+
   </script>
 
 </body>

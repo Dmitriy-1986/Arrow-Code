@@ -120,7 +120,7 @@
 
       for (key in arrowCode) {
         let li = document.createElement('li');
-        li.innerHTML = arrowCode[key].charAt(0).toUpperCase() + arrowCode[key].slice(1);
+        li.innerHTML = arrowCode[key].charAt(0).toUpperCase() + arrowCode[key].slice(1).toLowerCase();
         listArticle.appendChild(li);
       }
     }());
